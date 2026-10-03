@@ -3,7 +3,19 @@
 <style>
 :root{color-scheme:dark;--bg:#07101d;--card:#0e1929;--line:#243954;--text:#f7f8fb;--muted:#9daabe;--gold:#c8a66c;--blue:#789cff;--easy:#75c99a;--mod:#e2b76d;--hard:#e28d76}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#172943 0,#07101d 42%);color:var(--text);font-family:Inter,system-ui,sans-serif;user-select:none}.wrap{max-width:920px;margin:auto;padding:20px 16px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:14px}.eyebrow{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:800}.title{font:700 28px Georgia,serif}.timer{font-variant-numeric:tabular-nums;border:1px solid #334963;border-radius:999px;padding:10px 14px;background:#0d1929}.bar{height:5px;background:#142338;border-radius:99px;overflow:hidden;margin:15px 0 22px}.fill{height:100%;background:var(--gold);width:0}.card{background:linear-gradient(145deg,#101d2f,#0b1524);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 70px #0004}.qmeta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px}.badge{border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.Easy{background:#143324;color:var(--easy)}.Moderate{background:#382b16;color:var(--mod)}.Hard,.Very\ Hard{background:#3b211b;color:var(--hard)}.q{font:600 clamp(21px,3vw,29px)/1.4 Georgia,serif;margin:8px 0 22px}.option{display:block;padding:15px 16px;border:1px solid #263d58;border-radius:14px;margin:10px 0;background:#0b1726;cursor:pointer;transition:.18s}.option:hover{border-color:#55749b}.option.selected{border-color:var(--gold);background:#211d16}.option input{display:none}.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#12100c}.secondary{background:#17263a;color:#eaf0f7;border:1px solid #304761}.upload{border:1px dashed #4a6380;border-radius:15px;padding:20px;text-align:center;background:#0a1523}.namebox{width:100%;padding:14px;background:#091321;color:white;border:1px solid #2b405b;border-radius:12px}.instructions{color:var(--muted);line-height:1.7}.intro{max-width:700px;margin:70px auto}.hidden{display:none!important}.danger{color:#e8a18f}.photo{max-width:100%;margin-top:12px;border-radius:12px}.review{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.dot{width:28px;height:28px;border-radius:50%;border:1px solid #334963;background:#0b1726;color:#c8d2df;font-size:11px}.dot.done{background:#223a35}.dot.current{border-color:var(--gold)}@media(max-width:650px){.wrap{padding-top:12px}.card{padding:18px}.top{align-items:flex-start}.title{font-size:23px}.timer{font-size:12px}}
-</style></head>
+</style>
+<style>
+.photo-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.photo-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 15px;border:1px solid #30384b;border-radius:12px;background:#151a25;color:#eef2ff;cursor:pointer;font:inherit}
+.photo-btn.primary{background:#6d5dfc;border-color:#6d5dfc}
+.photo-btn:hover{filter:brightness(1.08)}
+.photo-preview{margin-top:12px;border:1px solid #30384b;border-radius:14px;padding:10px;background:#101521}
+.photo-preview img{display:block;max-width:100%;max-height:300px;border-radius:10px;margin:auto}
+.photo-name{display:block;margin-top:7px;font-size:12px;color:#9daabe;text-align:center;word-break:break-all}
+.hidden{display:none!important}
+@media(max-width:600px){.photo-actions{display:grid;grid-template-columns:1fr 1fr}.photo-btn{width:100%;box-sizing:border-box}}
+</style>
+</head>
 <body><main class="wrap"><div id="intro" class="intro card"><div class="eyebrow">Private Examination Portal</div><h1 id="introTitle" class="title">Loading…</h1><p id="introSub" class="instructions"></p><ul id="inst" class="instructions"></ul><input id="name" class="namebox" placeholder="Enter your name"><br><br><button class="btn primary" onclick="start()">Start Test</button></div>
 <div id="exam" class="hidden"><div class="top"><div><div class="eyebrow" id="subj"></div><div class="title" id="title"></div></div><div class="timer" id="timer">00:00</div></div><div class="bar"><div id="fill" class="fill"></div></div><div id="qcard" class="card"></div><div class="review" id="review"></div></div>
 <script>
@@ -18,4 +30,40 @@ function photo(inp){const f=inp.files[0];if(!f)return;const reader=new FileReade
 function next(){if(idx<test.questions.length-1){idx++;render()}}function prev(){if(idx>0){idx--;render()}}function goto(i){idx=i;render()}
 async function submitTest(auto){if(!auto&&!confirm('Submit this test? You will not be able to change your answers.'))return;clearInterval(interval);const r=await fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({testId:test.id,name:document.getElementById('name').value,answers:Object.values(answers),startedAt})});const j=await r.json();if(!r.ok)return alert(j.error);location.href='/result/'+j.submissionId}
 init();
-</script></main></body></html>
+</script></main>
+<script>
+document.addEventListener("change", function(e){
+  const input = e.target.closest(".photoInput");
+  if(!input || !input.files || !input.files[0]) return;
+  const file = input.files[0];
+  const qid = input.dataset.q;
+  const wrap = document.querySelector('[data-preview="'+qid+'"]');
+  if(!wrap) return;
+  const img = wrap.querySelector("img");
+  const name = wrap.querySelector(".photo-name");
+  const reader = new FileReader();
+  reader.onload = () => {
+    img.src = reader.result;
+    name.textContent = file.name;
+    wrap.classList.remove("hidden");
+    document.querySelectorAll('.retakeBtn[data-q="'+qid+'"]').forEach(b=>b.classList.remove("hidden"));
+    // Store the data URL on the input so the submit handler can use it.
+    input.dataset.dataUrl = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+document.addEventListener("click", function(e){
+  const btn = e.target.closest(".retakeBtn");
+  if(!btn) return;
+  const qid = btn.dataset.q;
+  document.querySelectorAll('.photoInput[data-q="'+qid+'"]').forEach(i=>{
+    i.value="";
+    delete i.dataset.dataUrl;
+  });
+  const wrap=document.querySelector('[data-preview="'+qid+'"]');
+  if(wrap) wrap.classList.add("hidden");
+  btn.classList.add("hidden");
+});
+</script>
+</body></html>
