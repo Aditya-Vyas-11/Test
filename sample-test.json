@@ -1,0 +1,356 @@
+{
+  "id": "demo-writing-city-life",
+  "title": "Writing and City Life — Advanced Test",
+  "subtitle": "Class XI • History",
+  "subject": "History",
+  "chapter": "Theme 1: Writing and City Life",
+  "durationMinutes": 50,
+  "instructions": [
+    "The paper contains a mixture of Easy, Moderate, Hard and Very Hard questions.",
+    "MCQs are evaluated automatically after submission.",
+    "For subjective questions, write your answer in your notebook and upload a clear photograph.",
+    "Do not refresh the page during the test."
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "difficulty": "Easy",
+      "marks": 1,
+      "question": "Mesopotamia is the land between which two rivers?",
+      "options": [
+        "Nile and Tigris",
+        "Euphrates and Tigris",
+        "Euphrates and Nile",
+        "Indus and Euphrates"
+      ],
+      "answer": 1,
+      "explanation": "Mesopotamia literally refers to the land between the Euphrates and Tigris rivers."
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "difficulty": "Easy",
+      "marks": 1,
+      "question": "Which of the following was the first known language of Mesopotamia?",
+      "options": [
+        "Akkadian",
+        "Aramaic",
+        "Sumerian",
+        "Babylonian"
+      ],
+      "answer": 2,
+      "explanation": "Sumerian is described in the chapter as the earliest known language of the land."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "difficulty": "Moderate",
+      "marks": 1,
+      "question": "Consider the following statements about southern Mesopotamia: (1) The region received insufficient rainfall for agriculture. (2) The Euphrates and Tigris deposited fertile silt. (3) Irrigation channels helped bring water to agricultural fields. (4) Urbanisation occurred simply because agriculture was highly productive. Which is correct?",
+      "options": [
+        "1, 2 and 3 only",
+        "1 and 4 only",
+        "2 and 3 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": 0,
+      "explanation": "The chapter explains the importance of rivers, silt and irrigation, but cautions against explaining city growth merely through rural prosperity."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "difficulty": "Moderate",
+      "marks": 1,
+      "question": "Which of the following best explains division of labour as a feature of urban life in Mesopotamia?",
+      "options": [
+        "Every city-dweller produced everything needed by his household.",
+        "Different people specialised in different activities and depended upon one another.",
+        "Only agricultural labour was divided among different groups.",
+        "Labour was divided exclusively between kings and priests."
+      ],
+      "answer": 1,
+      "explanation": "Urban specialisation created interdependence among different producers and workers."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "difficulty": "Moderate",
+      "marks": 1,
+      "question": "A stone-seal maker requires bronze tools and coloured stones, while the bronze-tool maker requires copper, tin and charcoal. This situation most directly demonstrates:",
+      "options": [
+        "the self-sufficiency of cities",
+        "the interdependence created by urban specialisation",
+        "the decline of craft production",
+        "the absence of organised trade"
+      ],
+      "answer": 1,
+      "explanation": "Specialised urban production made producers dependent on one another and on long-distance exchange."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "difficulty": "Moderate",
+      "marks": 1,
+      "question": "Which of the following was NOT a major reason for the movement of goods into Mesopotamian cities?",
+      "options": [
+        "Lack of metals in southern Mesopotamia",
+        "Lack of suitable timber",
+        "Lack of certain types of stone",
+        "Complete absence of agricultural products"
+      ],
+      "answer": 3,
+      "explanation": "Mesopotamia had productive agriculture; it lacked several raw materials and exchanged its own produce for them."
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "difficulty": "Moderate",
+      "marks": 1,
+      "question": "Why was water transport particularly important for Mesopotamian cities?",
+      "options": [
+        "Boats required less food than animals used for transport.",
+        "Water transport was useful only for military purposes.",
+        "Rivers could not be used for transporting agricultural produce.",
+        "Water transport eliminated the need for trade."
+      ],
+      "answer": 0,
+      "explanation": "Boats could transport bulky goods without the feeding requirements associated with animal transport."
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "difficulty": "Hard",
+      "marks": 1,
+      "question": "The earliest Mesopotamian tablets, dating to around 3200 BCE, mainly contained:",
+      "options": [
+        "Long historical narratives about kings",
+        "Religious hymns and philosophical arguments",
+        "Picture-like signs, numbers and lists of goods",
+        "Detailed accounts of military campaigns"
+      ],
+      "answer": 2,
+      "explanation": "The earliest tablets were closely connected with recording goods, numbers and distributions."
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "difficulty": "Hard",
+      "marks": 1,
+      "question": "Which inference is most strongly supported by the early Mesopotamian tablets?",
+      "options": [
+        "Writing initially developed primarily for literary entertainment.",
+        "Writing was closely connected with the need to maintain records in an increasingly complex urban society.",
+        "Writing was restricted to recording religious myths.",
+        "Writing developed only after kings had established large empires."
+      ],
+      "answer": 1,
+      "explanation": "The early use of writing for lists, numbers and distributions connects it closely with administration and urban complexity."
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "difficulty": "Hard",
+      "marks": 1,
+      "question": "In the story of Enmerkar and Aratta, why does the creation of a clay tablet become significant?",
+      "options": [
+        "It demonstrates the use of writing to preserve and communicate messages.",
+        "It proves that clay tablets were originally used as currency.",
+        "It shows that oral communication had completely disappeared.",
+        "It proves that the story is a literal historical record."
+      ],
+      "answer": 0,
+      "explanation": "The story highlights the ability of writing to preserve a message that could otherwise be confused in oral transmission."
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "difficulty": "Hard",
+      "marks": 1,
+      "question": "Which of the following correctly describes the changing role of the temple in Mesopotamian urban life?",
+      "options": [
+        "It remained exclusively a place of worship.",
+        "It became involved in production, employment, storage and keeping written records.",
+        "It gradually lost all economic importance.",
+        "It functioned only as the residence of kings."
+      ],
+      "answer": 1,
+      "explanation": "The temple became an important urban institution with economic and administrative functions in addition to worship."
+    },
+    {
+      "id": "q12",
+      "type": "mcq",
+      "difficulty": "Hard",
+      "marks": 1,
+      "question": "Assertion (A): Temples became important urban institutions in Mesopotamia. Reason (R): Temples were involved not only in worship but also in organising production, employing merchants and maintaining records.",
+      "options": [
+        "Both A and R are true, and R is the correct explanation of A.",
+        "Both A and R are true, but R is not the correct explanation of A.",
+        "A is true, but R is false.",
+        "A is false, but R is true."
+      ],
+      "answer": 0,
+      "explanation": "The economic and administrative functions described in the Reason explain the wider importance of temples."
+    },
+    {
+      "id": "q13",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Arrange the following in the correct chronological order: (1) First writing in Mesopotamia (2) Earliest temples in southern Mesopotamia (3) Uruk develops into a huge city (4) Sumerian is gradually replaced by Akkadian (5) Sargon becomes king of Akkad.",
+      "options": [
+        "2 → 1 → 3 → 4 → 5",
+        "1 → 2 → 3 → 5 → 4",
+        "2 → 3 → 1 → 4 → 5",
+        "2 → 1 → 4 → 3 → 5"
+      ],
+      "answer": 0,
+      "explanation": "The chapter timeline places earliest temples before writing, followed by the growth of Uruk and later the Akkadian period."
+    },
+    {
+      "id": "q14",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Which statement best explains why literacy remained limited in Mesopotamian society?",
+      "options": [
+        "Writing was considered unnecessary in cities.",
+        "The writing system involved hundreds of signs, many of them complex.",
+        "Clay tablets could not preserve information.",
+        "Only foreigners were allowed to learn writing."
+      ],
+      "answer": 1,
+      "explanation": "The complexity and large number of cuneiform signs meant that literacy was limited to a relatively small group."
+    },
+    {
+      "id": "q15",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "A cylinder seal could be rolled over wet clay covering the knot of a package or the mouth of a pot. It could also be used on a clay tablet. Which conclusion follows most appropriately?",
+      "options": [
+        "Seals had only decorative value.",
+        "Seals had practical as well as administrative and social significance.",
+        "Seals were mainly weapons used by kings.",
+        "Seals replaced writing completely."
+      ],
+      "answer": 1,
+      "explanation": "Cylinder seals helped secure objects and documents and could identify owners or officials."
+    },
+    {
+      "id": "q16",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Which combination correctly describes Mari? (1) It flourished as a royal capital after 2000 BCE. (2) It stood upstream on the Euphrates. (3) Its region combined agriculture and animal rearing. (4) Its population consisted exclusively of settled farmers. (5) Pastoralists and farmers could both cooperate and come into conflict.",
+      "options": [
+        "1, 2 and 3 only",
+        "1, 2, 3 and 5 only",
+        "2, 4 and 5 only",
+        "1, 3, 4 and 5 only"
+      ],
+      "answer": 1,
+      "explanation": "Mari was an important riverine city in a pastoral zone; exchange and conflict between pastoralists and settled groups are both discussed."
+    },
+    {
+      "id": "q17",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Which statement best represents the chapter's treatment of pastoral communities in Mesopotamian history?",
+      "options": [
+        "Pastoralists were permanently excluded from urban civilisation.",
+        "Pastoralists had no economic relationship with agricultural communities.",
+        "Pastoral groups could trade with settled communities, enter the agricultural heartland and sometimes establish political rule.",
+        "Pastoralists disappeared once cities emerged."
+      ],
+      "answer": 2,
+      "explanation": "The chapter shows that pastoralists interacted economically and politically with settled communities."
+    },
+    {
+      "id": "q18",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Consider this archaeological evidence: records of grain distribution, craft production, imported materials, written administrative documents and specialised workshops. Which interpretation is most consistent with the chapter?",
+      "options": [
+        "The settlement was economically isolated.",
+        "The settlement displayed characteristics of an urban economy based on specialisation, exchange and organisation.",
+        "The settlement depended entirely on hunting and gathering.",
+        "The settlement had no administrative structure."
+      ],
+      "answer": 1,
+      "explanation": "The combined evidence points toward an organised urban economy with specialised production, exchange and administration."
+    },
+    {
+      "id": "q19",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Which of the following is NOT presented in the chapter as part of Mesopotamia's scholarly legacy?",
+      "options": [
+        "Mathematical tables",
+        "Time reckoning",
+        "Observation of stars and eclipses",
+        "The modern decimal place-value system"
+      ],
+      "answer": 3,
+      "explanation": "The chapter discusses mathematics, time reckoning and astronomy, but does not present the modern decimal place-value system as part of this legacy."
+    },
+    {
+      "id": "q20",
+      "type": "mcq",
+      "difficulty": "Very Hard",
+      "marks": 1,
+      "question": "Consider the following statements: (1) Mesopotamian cities depended upon agricultural production. (2) Urban economies included trade, manufacture and services. (3) Division of labour increased interdependence among producers. (4) Organised storage and distribution were important to urban economies. (5) Fertile agricultural land alone explains the emergence of cities. Which option is correct?",
+      "options": [
+        "1, 2, 3 and 4 only",
+        "1, 3 and 5 only",
+        "2, 4 and 5 only",
+        "All five"
+      ],
+      "answer": 0,
+      "explanation": "The chapter connects urban life with agriculture, trade, manufacture, services, storage and division of labour, while rejecting a single-factor explanation."
+    },
+    {
+      "id": "q21",
+      "type": "subjective",
+      "difficulty": "Moderate",
+      "marks": 3,
+      "question": "Why was southern Mesopotamia suitable for agriculture despite its low rainfall?",
+      "modelAnswer": "The Euphrates and Tigris carried fine silt from the northern mountains. When the rivers flooded or their water was channelled into fields, fertile silt was deposited. Small channels also functioned as irrigation canals, allowing water to be brought to fields when necessary."
+    },
+    {
+      "id": "q22",
+      "type": "subjective",
+      "difficulty": "Hard",
+      "marks": 5,
+      "question": "Explain the significance of the development of writing in Mesopotamian urban society. Refer to record-keeping, transactions, communication and administration.",
+      "modelAnswer": "Writing developed in close connection with the needs of an increasingly complex urban society. Early tablets recorded goods and numbers and were used in temple-related transactions and distributions. Writing made it possible to preserve information, record transactions and communicate messages. Over time, cuneiform became a sophisticated writing system used for administrative, literary, scholarly and other purposes."
+    },
+    {
+      "id": "q23",
+      "type": "subjective",
+      "difficulty": "Hard",
+      "marks": 5,
+      "question": "“The temple was more than a religious institution in Mesopotamian cities.” Explain.",
+      "modelAnswer": "Temples were associated with gods but also became important economic and administrative institutions. They organised production, received and distributed agricultural produce, employed workers and merchants, and maintained written records. Thus their role extended beyond worship into the organisation of urban economic life."
+    },
+    {
+      "id": "q24",
+      "type": "subjective",
+      "difficulty": "Very Hard",
+      "marks": 5,
+      "question": "How did the growth of cities create a need for organised trade, transport, storage and division of labour? Support your answer with examples from the chapter.",
+      "modelAnswer": "Urban populations included people engaged in specialised occupations rather than producing everything themselves. Cities therefore depended on organised supplies of food and raw materials. Mesopotamia lacked several materials such as metals, timber and stone, encouraging long-distance exchange. Water transport was important for moving bulky goods. Storage and distribution were also organised through institutions such as temples. These processes increased interdependence among specialised producers."
+    },
+    {
+      "id": "q25",
+      "type": "subjective",
+      "difficulty": "Very Hard",
+      "marks": 5,
+      "question": "“Mesopotamian civilisation cannot be understood only through its cities; its interaction with pastoral communities was also significant.” Discuss with reference to Mari.",
+      "modelAnswer": "Mari was a major urban centre located upstream on the Euphrates in a region where agriculture and animal rearing were both important. Pastoral communities exchanged animals and animal products for grain and other goods. At the same time, access to fields and water could create conflict between pastoralists and settled farmers. The history of Mari therefore shows interaction, exchange and conflict between urban, agricultural and pastoral groups."
+    }
+  ]
+}

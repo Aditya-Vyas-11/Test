@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: private-history-test-portal
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DATABASE_URL
+        sync: false
