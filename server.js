@@ -19,8 +19,9 @@ const upload = multer({
   limits: { fileSize: 8 * 1024 * 1024 }
 });
 
-app.use(express.json({ limit: "2mb" }));
-app.use(express.urlencoded({ extended: true, limit: "2mb" }));
+// Yahan limit 2mb se badha kar 20mb kar di gayi hai taaki photos submit ho sakein
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 app.use(express.static(path.join(__dirname, "public")));
 
 function id(len=12){ return crypto.randomBytes(16).toString("base64url").slice(0,len); }
