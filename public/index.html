@@ -1,12 +1,1256 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Private Test Portal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test</title>
+
 <style>
-:root{color-scheme:dark;--bg:#08101d;--card:#0e1929;--line:#20314a;--text:#f5f7fb;--muted:#9eabc0;--accent:#b89b68;--accent2:#7ea4ff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 10%,#14253d 0,#08101d 40%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);min-height:100vh}
-.wrap{max-width:920px;margin:auto;padding:28px 18px 60px}.brand{letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-size:12px;font-weight:800}.hero{padding:52px 0 28px}.hero h1{font-family:Georgia,serif;font-size:clamp(38px,7vw,72px);line-height:.98;margin:10px 0}.hero p{color:var(--muted);font-size:16px}.card{background:linear-gradient(145deg,#111e30,#0b1524);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 60px #0005}.meta{display:flex;gap:10px;flex-wrap:wrap}.pill{border:1px solid #30445f;border-radius:999px;padding:8px 12px;font-size:12px;color:#cbd5e4}.btn{display:inline-flex;border:0;border-radius:13px;padding:13px 18px;background:var(--accent);color:#101010;font-weight:800;cursor:pointer}.btn.secondary{background:#17263a;color:#e8edf6;border:1px solid #2d425d}.btn:active{transform:translateY(1px)}a{color:inherit;text-decoration:none}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.hero{padding-top:32px}}
-</style></head>
-<body><main class="wrap"><div class="hero"><div class="brand">Private Examination Portal</div><h1>Writing &amp;<br>City Life</h1><p>A premium Class XI History test experience.</p></div>
-<section class="card"><div class="meta"><span class="pill">Class XI</span><span class="pill">History</span><span class="pill">25 Questions</span><span class="pill">50 Minutes</span></div><h2>Ready when you are.</h2><p style="color:var(--muted)">Use the test link you were given to begin. For the administrator dashboard, open <b>/admin</b>.</p><div class="grid"><a class="btn" href="/test/demo-writing-city-life">Preview Test</a><a class="btn secondary" href="/admin">Admin Dashboard</a></div></section></main></body></html>
+:root{
+  color-scheme:dark;
+  --bg:#07101d;
+  --card:#0e1929;
+  --line:#243954;
+  --text:#f7f8fb;
+  --muted:#9daabe;
+  --gold:#c8a66c;
+  --blue:#789cff;
+  --easy:#75c99a;
+  --mod:#e2b76d;
+  --hard:#e28d76
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:radial-gradient(circle at 80% 0,#172943 0,#07101d 42%);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+  user-select:none
+}
+
+.wrap{
+  max-width:920px;
+  margin:auto;
+  padding:20px 16px 50px
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:14px
+}
+
+.eyebrow{
+  color:var(--gold);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-weight:800
+}
+
+.title{
+  font:700 28px Georgia,serif
+}
+
+.timer{
+  font-variant-numeric:tabular-nums;
+  border:1px solid #334963;
+  border-radius:999px;
+  padding:10px 14px;
+  background:#0d1929
+}
+
+.bar{
+  height:5px;
+  background:#142338;
+  border-radius:99px;
+  overflow:hidden;
+  margin:15px 0 22px
+}
+
+.fill{
+  height:100%;
+  background:var(--gold);
+  width:0
+}
+
+.card{
+  background:linear-gradient(145deg,#101d2f,#0b1524);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 20px 70px #0004
+}
+
+.qmeta{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px
+}
+
+.badge{
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em
+}
+
+.Easy{
+  background:#143324;
+  color:var(--easy)
+}
+
+.Moderate{
+  background:#382b16;
+  color:var(--mod)
+}
+
+.Hard,.Very\ Hard{
+  background:#3b211b;
+  color:var(--hard)
+}
+
+.q{
+  font:600 clamp(21px,3vw,29px)/1.4 Georgia,serif;
+  margin:8px 0 22px
+}
+
+.option{
+  display:block;
+  padding:15px 16px;
+  border:1px solid #263d58;
+  border-radius:14px;
+  margin:10px 0;
+  background:#0b1726;
+  cursor:pointer;
+  transition:.18s
+}
+
+.option:hover{
+  border-color:#55749b
+}
+
+.option.selected{
+  border-color:var(--gold);
+  background:#211d16
+}
+
+.option input{
+  display:none
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:20px
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:13px 18px;
+  font-weight:800;
+  cursor:pointer
+}
+
+.primary{
+  background:var(--gold);
+  color:#12100c
+}
+
+.secondary{
+  background:#17263a;
+  color:#eaf0f7;
+  border:1px solid #304761
+}
+
+.upload{
+  border:1px dashed #4a6380;
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+  background:#0a1523
+}
+
+.namebox{
+  width:100%;
+  padding:14px;
+  background:#091321;
+  color:white;
+  border:1px solid #2b405b;
+  border-radius:12px
+}
+
+.instructions{
+  color:var(--muted);
+  line-height:1.7
+}
+
+.intro{
+  max-width:700px;
+  margin:70px auto
+}
+
+.hidden{
+  display:none!important
+}
+
+.danger{
+  color:#e8a18f
+}
+
+.photo{
+  max-width:100%;
+  margin-top:12px;
+  border-radius:12px
+}
+
+.review{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:15px
+}
+
+.dot{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  border:1px solid #334963;
+  background:#0b1726;
+  color:#c8d2df;
+  font-size:11px
+}
+
+.dot.done{
+  background:#223a35
+}
+
+.dot.current{
+  border-color:var(--gold)
+}
+
+@media(max-width:650px){
+  .wrap{
+    padding-top:12px
+  }
+
+  .card{
+    padding:18px
+  }
+
+  .top{
+    align-items:flex-start
+  }
+
+  .title{
+    font-size:23px
+  }
+
+  .timer{
+    font-size:12px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="wrap">
+
+<div id="intro" class="intro card">
+
+  <div class="eyebrow">
+    Private Examination Portal
+  </div>
+
+  <h1 id="introTitle" class="title">
+    Loading…
+  </h1>
+
+  <p id="introSub" class="instructions"></p>
+
+  <ul id="inst" class="instructions"></ul>
+
+  <input
+    id="name"
+    class="namebox"
+    placeholder="Enter your name"
+  >
+
+  <br><br>
+
+  <button
+    class="btn primary"
+    onclick="start()"
+  >
+    Start Test
+  </button>
+
+</div>
+
+
+<div id="exam" class="hidden">
+
+  <div class="top">
+
+    <div>
+
+      <div
+        class="eyebrow"
+        id="subj">
+      </div>
+
+      <div
+        class="title"
+        id="title">
+      </div>
+
+    </div>
+
+    <div
+      class="timer"
+      id="timer">
+      00:00
+    </div>
+
+  </div>
+
+
+  <div class="bar">
+    <div
+      id="fill"
+      class="fill">
+    </div>
+  </div>
+
+
+  <div
+    id="qcard"
+    class="card">
+  </div>
+
+
+  <div
+    class="review"
+    id="review">
+  </div>
+
+</div>
+
+
+<script>
+
+let test;
+let idx=0;
+let answers={};
+let startedAt=null;
+let remaining=0;
+let interval=null;
+
+const id='demo-writing-city-life';
+
+
+const EMBEDDED_TEST={
+  "id":"demo-writing-city-life",
+  "title":"Writing and City Life — Advanced Test",
+  "subtitle":"Class XI • History",
+  "subject":"History",
+  "chapter":"Theme 1: Writing and City Life",
+  "durationMinutes":50,
+
+  "instructions":[
+    "The paper contains a mixture of Easy, Moderate, Hard and Very Hard questions.",
+    "MCQs are evaluated automatically after submission.",
+    "For subjective questions, write your answer in your notebook and upload a clear photograph.",
+    "Do not refresh the page during the test."
+  ],
+
+  "questions":[
+
+    {
+      "id":"q1",
+      "type":"mcq",
+      "difficulty":"Easy",
+      "marks":1,
+      "question":"Mesopotamia is the land between which two rivers?",
+      "options":[
+        "Nile and Tigris",
+        "Euphrates and Tigris",
+        "Euphrates and Nile",
+        "Indus and Euphrates"
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q2",
+      "type":"mcq",
+      "difficulty":"Easy",
+      "marks":1,
+      "question":"Which of the following was the first known language of Mesopotamia?",
+      "options":[
+        "Akkadian",
+        "Aramaic",
+        "Sumerian",
+        "Babylonian"
+      ],
+      "answer":2
+    },
+
+    {
+      "id":"q3",
+      "type":"mcq",
+      "difficulty":"Moderate",
+      "marks":1,
+      "question":"Consider the following statements about southern Mesopotamia: (1) The region received insufficient rainfall for agriculture. (2) The Euphrates and Tigris deposited fertile silt. (3) Irrigation channels helped bring water to agricultural fields. (4) Urbanisation occurred simply because agriculture was highly productive. Which is correct?",
+      "options":[
+        "1, 2 and 3 only",
+        "1 and 4 only",
+        "2 and 3 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer":0
+    },
+
+    {
+      "id":"q4",
+      "type":"mcq",
+      "difficulty":"Moderate",
+      "marks":1,
+      "question":"Which of the following best explains division of labour as a feature of urban life in Mesopotamia?",
+      "options":[
+        "Every city-dweller produced everything needed by his household.",
+        "Different people specialised in different activities and depended upon one another.",
+        "Only agricultural labour was divided among different groups.",
+        "Labour was divided exclusively between kings and priests."
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q5",
+      "type":"mcq",
+      "difficulty":"Moderate",
+      "marks":1,
+      "question":"A stone-seal maker requires bronze tools and coloured stones, while the bronze-tool maker requires copper, tin and charcoal. This situation most directly demonstrates:",
+      "options":[
+        "the self-sufficiency of cities",
+        "the interdependence created by urban specialisation",
+        "the decline of craft production",
+        "the absence of organised trade"
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q6",
+      "type":"mcq",
+      "difficulty":"Moderate",
+      "marks":1,
+      "question":"Which of the following was NOT a major reason for the movement of goods into Mesopotamian cities?",
+      "options":[
+        "Lack of metals in southern Mesopotamia",
+        "Lack of suitable timber",
+        "Lack of certain types of stone",
+        "Complete absence of agricultural products"
+      ],
+      "answer":3
+    },
+
+    {
+      "id":"q7",
+      "type":"mcq",
+      "difficulty":"Moderate",
+      "marks":1,
+      "question":"Why was water transport particularly important for Mesopotamian cities?",
+      "options":[
+        "Boats required less food than animals used for transport.",
+        "Water transport was useful only for military purposes.",
+        "Rivers could not be used for transporting agricultural produce.",
+        "Water transport eliminated the need for trade."
+      ],
+      "answer":0
+    },
+
+    {
+      "id":"q8",
+      "type":"mcq",
+      "difficulty":"Hard",
+      "marks":1,
+      "question":"The earliest Mesopotamian tablets, dating to around 3200 BCE, mainly contained:",
+      "options":[
+        "Long historical narratives about kings",
+        "Religious hymns and philosophical arguments",
+        "Picture-like signs, numbers and lists of goods",
+        "Detailed accounts of military campaigns"
+      ],
+      "answer":2
+    },
+
+    {
+      "id":"q9",
+      "type":"mcq",
+      "difficulty":"Hard",
+      "marks":1,
+      "question":"Which inference is most strongly supported by the early Mesopotamian tablets?",
+      "options":[
+        "Writing initially developed primarily for literary entertainment.",
+        "Writing was closely connected with the need to maintain records in an increasingly complex urban society.",
+        "Writing was restricted to recording religious myths.",
+        "Writing developed only after kings had established large empires."
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q10",
+      "type":"mcq",
+      "difficulty":"Hard",
+      "marks":1,
+      "question":"In the story of Enmerkar and Aratta, why does the creation of a clay tablet become significant?",
+      "options":[
+        "It demonstrates the use of writing to preserve and communicate messages.",
+        "It proves that clay tablets were originally used as currency.",
+        "It shows that oral communication had completely disappeared.",
+        "It proves that the story is a literal historical record."
+      ],
+      "answer":0
+    },
+
+    {
+      "id":"q11",
+      "type":"mcq",
+      "difficulty":"Hard",
+      "marks":1,
+      "question":"Which of the following correctly describes the changing role of the temple in Mesopotamian urban life?",
+      "options":[
+        "It remained exclusively a place of worship.",
+        "It became involved in production, employment, storage and keeping written records.",
+        "It gradually lost all economic importance.",
+        "It functioned only as the residence of kings."
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q12",
+      "type":"mcq",
+      "difficulty":"Hard",
+      "marks":1,
+      "question":"Assertion (A): Temples became important urban institutions in Mesopotamia. Reason (R): Temples were involved not only in worship but also in organising production, employing merchants and maintaining records.",
+      "options":[
+        "Both A and R are true, and R is the correct explanation of A.",
+        "Both A and R are true, but R is not the correct explanation of A.",
+        "A is true, but R is false.",
+        "A is false, but R is true."
+      ],
+      "answer":0
+    },
+
+    {
+      "id":"q13",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Arrange the following in the correct chronological order: (1) First writing in Mesopotamia (2) Earliest temples in southern Mesopotamia (3) Uruk develops into a huge city (4) Sumerian is gradually replaced by Akkadian (5) Sargon becomes king of Akkad.",
+      "options":[
+        "2 → 1 → 3 → 4 → 5",
+        "1 → 2 → 3 → 5 → 4",
+        "2 → 3 → 1 → 4 → 5",
+        "2 → 1 → 4 → 3 → 5"
+      ],
+      "answer":0
+    },
+
+    {
+      "id":"q14",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Which statement best explains why literacy remained limited in Mesopotamian society?",
+      "options":[
+        "Writing was considered unnecessary in cities.",
+        "The writing system involved hundreds of signs, many of them complex.",
+        "Clay tablets could not preserve information.",
+        "Only foreigners were allowed to learn writing."
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q15",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"A cylinder seal could be rolled over wet clay covering the knot of a package or the mouth of a pot. It could also be used on a clay tablet. Which conclusion follows most appropriately?",
+      "options":[
+        "Seals had only decorative value.",
+        "Seals had practical as well as administrative and social significance.",
+        "Seals were mainly weapons used by kings.",
+        "Seals replaced writing completely."
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q16",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Which combination correctly describes Mari? (1) It flourished as a royal capital after 2000 BCE. (2) It stood upstream on the Euphrates. (3) Its region combined agriculture and animal rearing. (4) Its population consisted exclusively of settled farmers. (5) Pastoralists and farmers could both cooperate and come into conflict.",
+      "options":[
+        "1, 2 and 3 only",
+        "1, 2, 3 and 5 only",
+        "2, 4 and 5 only",
+        "1, 3, 4 and 5 only"
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q17",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Which statement best represents the chapter's treatment of pastoral communities in Mesopotamian history?",
+      "options":[
+        "Pastoralists were permanently excluded from urban civilisation.",
+        "Pastoralists had no economic relationship with agricultural communities.",
+        "Pastoral groups could trade with settled communities, enter the agricultural heartland and sometimes establish political rule.",
+        "Pastoralists disappeared once cities emerged."
+      ],
+      "answer":2
+    },
+
+    {
+      "id":"q18",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Consider this archaeological evidence: records of grain distribution, craft production, imported materials, written administrative documents and specialised workshops. Which interpretation is most consistent with the chapter?",
+      "options":[
+        "The settlement was economically isolated.",
+        "The settlement displayed characteristics of an urban economy based on specialisation, exchange and organisation.",
+        "The settlement depended entirely on hunting and gathering.",
+        "The settlement had no administrative structure."
+      ],
+      "answer":1
+    },
+
+    {
+      "id":"q19",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Which of the following is NOT presented in the chapter as part of Mesopotamia's scholarly legacy?",
+      "options":[
+        "Mathematical tables",
+        "Time reckoning",
+        "Observation of stars and eclipses",
+        "The modern decimal place-value system"
+      ],
+      "answer":3
+    },
+
+    {
+      "id":"q20",
+      "type":"mcq",
+      "difficulty":"Very Hard",
+      "marks":1,
+      "question":"Consider the following statements: (1) Mesopotamian cities depended upon agricultural production. (2) Urban economies included trade, manufacture and services. (3) Division of labour increased interdependence among producers. (4) Organised storage and distribution were important to urban economies. (5) Fertile agricultural land alone explains the emergence of cities. Which option is correct?",
+      "options":[
+        "1, 2, 3 and 4 only",
+        "1, 3 and 5 only",
+        "2, 4 and 5 only",
+        "All five"
+      ],
+      "answer":0
+    },
+
+    {
+      "id":"q21",
+      "type":"subjective",
+      "difficulty":"Moderate",
+      "marks":3,
+      "question":"Why was southern Mesopotamia suitable for agriculture despite its low rainfall?"
+    },
+
+    {
+      "id":"q22",
+      "type":"subjective",
+      "difficulty":"Hard",
+      "marks":5,
+      "question":"Explain the significance of the development of writing in Mesopotamian urban society. Refer to record-keeping, transactions, communication and administration."
+    },
+
+    {
+      "id":"q23",
+      "type":"subjective",
+      "difficulty":"Hard",
+      "marks":5,
+      "question":"“The temple was more than a religious institution in Mesopotamian cities.” Explain."
+    },
+
+    {
+      "id":"q24",
+      "type":"subjective",
+      "difficulty":"Very Hard",
+      "marks":5,
+      "question":"How did the growth of cities create a need for organised trade, transport, storage and division of labour? Support your answer with examples from the chapter."
+    },
+
+    {
+      "id":"q25",
+      "type":"subjective",
+      "difficulty":"Very Hard",
+      "marks":5,
+      "question":"“Mesopotamian civilisation cannot be understood only through its cities; its interaction with pastoral communities was also significant.” Discuss with reference to Mari."
+    }
+
+  ]
+};
+
+
+async function init(){
+
+  test=EMBEDDED_TEST;
+
+  document.getElementById("introTitle").textContent=test.title;
+
+  document.getElementById("introSub").textContent=
+    `${test.subtitle} • ${test.questions.length} questions • ${test.durationMinutes} minutes`;
+
+  document.getElementById("subj").textContent=
+    `${test.subject} • ${test.chapter}`;
+
+  document.getElementById("title").textContent=test.title;
+
+  document.getElementById("inst").innerHTML=
+    (test.instructions||[])
+      .map(x=>`<li>${x}</li>`)
+      .join("");
+}
+
+
+function start(){
+
+  const name=document.getElementById("name").value.trim();
+
+  if(!name){
+    return alert("Please enter your name.");
+  }
+
+  startedAt=new Date().toISOString();
+
+  remaining=test.durationMinutes*60;
+
+  document.getElementById("intro").classList.add("hidden");
+
+  document.getElementById("exam").classList.remove("hidden");
+
+  render();
+
+  interval=setInterval(()=>{
+
+    remaining--;
+
+    tick();
+
+    if(remaining<=0){
+
+      clearInterval(interval);
+
+      submitTest(true);
+
+    }
+
+  },1000);
+
+  tick();
+}
+
+
+function tick(){
+
+  const m=String(
+    Math.floor(remaining/60)
+  ).padStart(2,"0");
+
+  const s=String(
+    remaining%60
+  ).padStart(2,"0");
+
+  document.getElementById("timer").textContent=
+    `${m}:${s}`;
+
+  document.getElementById("timer").classList.toggle(
+    "danger",
+    remaining<60
+  );
+}
+
+
+function render(){
+
+  const q=test.questions[idx];
+
+  const sel=answers[q.id]?.answer;
+
+  document.getElementById("fill").style.width=
+    ((idx+1)/test.questions.length*100)+"%";
+
+
+  document.getElementById("qcard").innerHTML=`
+
+    <div class="qmeta">
+
+      <span>
+        Question ${idx+1} of ${test.questions.length}
+      </span>
+
+      <span class="badge ${q.difficulty.replace(" ","\\ ")}">
+        ${q.difficulty}
+      </span>
+
+    </div>
+
+
+    <div class="q">
+      ${q.question}
+    </div>
+
+
+    ${
+      q.type==="mcq"
+
+      ?
+
+      q.options.map((o,i)=>`
+
+        <label class="option ${
+          String(sel)===String(i)
+          ?"selected"
+          :""
+        }">
+
+          <input
+            type="radio"
+            name="opt"
+            ${
+              String(sel)===String(i)
+              ?"checked"
+              :""
+            }
+            onchange="pick(${i})"
+          >
+
+          <b>${String.fromCharCode(65+i)}.</b>
+          ${o}
+
+        </label>
+
+      `).join("")
+
+      :
+
+      `
+
+      <div class="upload">
+
+        <b>
+          Write your answer in your notebook.
+        </b>
+
+        <p style="color:#9daabe">
+          Upload a clear photograph of your completed answer.
+        </p>
+
+        <input
+          id="photo"
+          type="file"
+          accept="image/*"
+          capture="environment"
+          onchange="photo(this)"
+        >
+
+        <div id="preview"></div>
+
+      </div>
+
+      `
+    }
+
+
+    <div class="nav">
+
+      <button
+        class="btn secondary"
+        onclick="prev()"
+      >
+        ← Previous
+      </button>
+
+
+      ${
+        idx<test.questions.length-1
+
+        ?
+
+        `
+        <button
+          class="btn primary"
+          onclick="next()"
+        >
+          Next →
+        </button>
+        `
+
+        :
+
+        `
+        <button
+          class="btn primary"
+          onclick="submitTest(false)"
+        >
+          Submit Test
+        </button>
+        `
+      }
+
+    </div>
+
+  `;
+
+
+  if(sel && q.type==="subjective"){
+
+    document.getElementById("preview").innerHTML=
+      `<img class="photo" src="${sel}">`;
+
+  }
+
+
+  document.getElementById("review").innerHTML=
+    test.questions.map((_,i)=>`
+
+      <button
+        class="dot
+          ${answers[test.questions[i].id]?"done ":""}
+          ${i===idx?"current":""}
+        "
+        onclick="goto(${i})"
+      >
+        ${i+1}
+      </button>
+
+    `).join("");
+}
+
+
+function pick(v){
+
+  answers[test.questions[idx].id]={
+    questionId:test.questions[idx].id,
+    answer:v
+  };
+
+  render();
+}
+
+
+/* FIXED PHOTO UPLOAD */
+function photo(inp){
+
+  const f=inp.files[0];
+
+  if(!f)return;
+
+
+  const reader=new FileReader();
+
+
+  reader.onload=()=>{
+
+    const img=new Image();
+
+
+    img.onload=()=>{
+
+      const max=1600;
+
+      const scale=Math.min(
+        1,
+        max/
+        Math.max(
+          img.naturalWidth,
+          img.naturalHeight
+        )
+      );
+
+
+      const canvas=document.createElement("canvas");
+
+
+      canvas.width=Math.max(
+        1,
+        Math.round(img.naturalWidth*scale)
+      );
+
+
+      canvas.height=Math.max(
+        1,
+        Math.round(img.naturalHeight*scale)
+      );
+
+
+      const ctx=canvas.getContext("2d");
+
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      /*
+        Compress uploaded images.
+        This prevents multiple large photos
+        from causing the full test to crash.
+      */
+
+      const compressed=
+        canvas.toDataURL(
+          "image/jpeg",
+          0.75
+        );
+
+
+      answers[test.questions[idx].id]={
+        questionId:test.questions[idx].id,
+        answer:compressed
+      };
+
+
+      render();
+
+    };
+
+
+    img.onerror=()=>{
+
+      alert(
+        "Image load nahi ho payi. Please try another image."
+      );
+
+    };
+
+
+    img.src=reader.result;
+
+  };
+
+
+  reader.onerror=()=>{
+
+    alert(
+      "Image read nahi ho payi."
+    );
+
+  };
+
+
+  reader.readAsDataURL(f);
+
+}
+
+
+function next(){
+
+  if(idx<test.questions.length-1){
+
+    idx++;
+
+    render();
+
+  }
+
+}
+
+
+function prev(){
+
+  if(idx>0){
+
+    idx--;
+
+    render();
+
+  }
+
+}
+
+
+function goto(i){
+
+  idx=i;
+
+  render();
+
+}
+
+
+/* FIXED SUBMISSION */
+async function submitTest(auto){
+
+  /*
+    Prevent double clicking submit.
+  */
+
+  if(window.__submitting)return;
+
+
+  if(
+    !auto &&
+    !confirm(
+      "Submit this test? You will not be able to change your answers."
+    )
+  ){
+
+    return;
+
+  }
+
+
+  window.__submitting=true;
+
+
+  try{
+
+    clearInterval(interval);
+
+
+    let autoScore=0;
+
+    let autoMax=0;
+
+
+    /*
+      Use a normal loop instead of relying
+      on a potentially heavy callback chain.
+    */
+
+    for(const q of test.questions){
+
+      if(q.type==="mcq"){
+
+        autoMax+=Number(q.marks)||0;
+
+
+        const userAnswer=
+          answers[q.id] &&
+          answers[q.id].answer!==undefined
+          ?answers[q.id].answer
+          :null;
+
+
+        if(
+          String(userAnswer)===
+          String(q.answer)
+        ){
+
+          autoScore+=Number(q.marks)||0;
+
+        }
+
+      }
+
+    }
+
+
+    const exam=
+      document.getElementById("exam");
+
+
+    if(!exam){
+
+      throw new Error(
+        "Exam container not found"
+      );
+
+    }
+
+
+    exam.innerHTML=`
+
+      <div class="card">
+
+        <div class="eyebrow">
+          Submission received
+        </div>
+
+        <h1>
+          Test Submitted
+        </h1>
+
+        <div
+          class="q"
+          style="font-size:42px"
+        >
+          ${autoScore}/${autoMax}
+        </div>
+
+        <p style="color:#9daabe">
+
+          MCQ score is shown immediately.
+          Subjective answers would be sent
+          to the administrator for manual
+          evaluation in the deployed version.
+
+        </p>
+
+      </div>
+
+    `;
+
+
+  }catch(error){
+
+    console.error(
+      "SUBMISSION ERROR:",
+      error
+    );
+
+
+    window.__submitting=false;
+
+
+    alert(
+      "Submission failed. Please try again."
+    );
+
+  }
+
+}
+
+
+init();
+
+</script>
+
+</main>
+
+</body>
+</html>
